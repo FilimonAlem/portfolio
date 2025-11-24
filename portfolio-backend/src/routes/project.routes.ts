@@ -4,7 +4,7 @@ import {Project } from "../models/project.model";
 const router = Router();
 
 // GET all projects
-router.get("/api/projects", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const projects = await Project.find(); 
     res.json(projects);
