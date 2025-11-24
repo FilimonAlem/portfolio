@@ -23,4 +23,4 @@ mongoose.connect(MONGO_URI)
 
  app.get('/api/projects', (req, res) => {
   res.send('Portfolio backend is running!');
-}); 
+});
