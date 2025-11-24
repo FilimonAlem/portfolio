@@ -21,6 +21,6 @@ mongoose.connect(MONGO_URI)
   })
   .catch(err => console.error('MongoDB connection error:', err));
 
- app.get('/api/projects', (req, res) => {
+ app.get('/', (req, res) => {
   res.send('Portfolio backend is running!');
 });
