@@ -16,11 +16,11 @@ app.use('/api/projects', projectRoutes);
 
 mongoose.connect(MONGO_URI)
   .then(() => {
-    console.log('MongoDB connected 🚀');
-    app.listen(5000, () => console.log(`Server running on port ${PORT}`));
+    console.log('MongoDB connected!');
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch(err => console.error('MongoDB connection error:', err));
 
- app.get('/', (req, res) => {
+ app.get('/api/projects', (req, res) => {
   res.send('Portfolio backend is running!');
 }); 

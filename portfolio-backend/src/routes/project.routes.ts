@@ -1,12 +1,12 @@
 import { Router } from "express";
-import {Project } from "../models/project.model"; // Mongoose model
+import {Project } from "../models/project.model"; 
 
 const router = Router();
 
 // GET all projects
 router.get("/", async (req, res) => {
   try {
-    const projects = await Project.find(); // Fetch all from MongoDB
+    const projects = await Project.find(); 
     res.json(projects);
   } catch (error) {
     console.error(error);
