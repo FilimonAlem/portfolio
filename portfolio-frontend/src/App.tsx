@@ -88,7 +88,7 @@ const ContactSection = () => (
       href="mailto:filimonalem1@gmail.com"
       className="text-blue-600 hover:undrline"
     >
-      <p className="text-gray-800 mb-2">[filimonalem1@gmail.com]</p>
+      <p className="text-gray-800 mb-2">Email</p>
     </a>
     <a
       href="www.linkedin.com/in/filimon-alem-b321952b3"
