@@ -88,19 +88,19 @@ const ContactSection = () => (
       href="mailto:filimonalem1@gmail.com"
       className="text-blue-600 hover:undrline"
     >
-      <p className="text-gray-800 mb-2">Email</p>
+      Email
     </a>
     <a
       href="www.linkedin.com/in/filimon-alem-b321952b3"
       className="text-blue-600 hover:undrline"
     >
-      <p className="text-gray-800 mb-2">LinkedIn</p>
+      LinkedIn
     </a>
     <a
       className="text-blue-600 hover:undrline"
       href="www.github.com/FilimonAlem"
     >
-      <p className="text-gray-800 mb-2">GitHub</p>
+      GitHub
     </a>
   </section>
 );
