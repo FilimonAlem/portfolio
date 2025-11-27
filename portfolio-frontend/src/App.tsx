@@ -57,8 +57,8 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
 const HeaderSection = () => (
   <div className="mb-[1vw] pt-[5vw] bg-gray-300 flex justify-between items-center h-[40vh]">
     <header className="pl-[2vw]">
-      <h1 className="text-4xl font-semibold">Your Name</h1>
-      <h2 className="text-2xl text-green-700">Your Title</h2>
+      <h1 className="text-4xl font-semibold">Filimon Alem</h1>
+      <h2 className="text-2xl text-green-700">Software Engineer</h2>
     </header>
     <div className="w-[18vw] h-[20vw] bg-gray-400 rounded-xl shadow-2xl border-2 border-blue-300" />
   </div>
@@ -84,8 +84,23 @@ const ContactSection = () => (
     <h3 className="text-3xl font-semibold mb-6 text-blue-900 border-b-2 border-blue-300 pb-2">
       Contact Me
     </h3>
-    <p className="text-gray-800 mb-2">[Email placeholder]</p>
-    <p className="text-gray-800 mb-2">[LinkedIn placeholder]</p>
-    <p className="text-gray-800 mb-2">[GitHub placeholder]</p>
+    <a
+      href="mailto:filimonalem1@gmail.com"
+      className="text-blue-600 hover:undrline"
+    >
+      <p className="text-gray-800 mb-2">[filimonalem1@gmail.com]</p>
+    </a>
+    <a
+      href="www.linkedin.com/in/filimon-alem-b321952b3"
+      className="text-blue-600 hover:undrline"
+    >
+      <p className="text-gray-800 mb-2">LinkedIn</p>
+    </a>
+    <a
+      className="text-blue-600 hover:undrline"
+      href="www.github.com/FilimonAlem"
+    >
+      <p className="text-gray-800 mb-2">GitHub</p>
+    </a>
   </section>
 );
