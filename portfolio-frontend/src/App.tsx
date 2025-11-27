@@ -91,14 +91,14 @@ const ContactSection = () => (
       Email
     </a>
     <a
-      href="www.linkedin.com/in/filimon-alem-b321952b3"
+      href="https://www.linkedin.com/in/filimon-alem-b321952b3"
       className="text-blue-600 hover:undrline"
     >
       LinkedIn
     </a>
     <a
       className="text-blue-600 hover:undrline"
-      href="www.github.com/FilimonAlem"
+      href="https://www.github.com/FilimonAlem"
     >
       GitHub
     </a>
