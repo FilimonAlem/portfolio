@@ -1,6 +1,7 @@
 import React from "react";
 import Projects from "./pages/projects"; // dynamic Projects component
 import "./App.css";
+import Profile_Photo from "./assets/Filimon-Alem.jpg";
 
 function App() {
   return (
@@ -55,12 +56,14 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
 );
 
 const HeaderSection = () => (
-  <div className="mb-[1vw] pt-[5vw] bg-gray-300 flex justify-between items-center h-[40vh]">
+  <div className="mb-[1vw] h-[40vh] pt-[5vw] bg-gray-300 flex justify-between items-center">
     <header className="pl-[2vw]">
-      <h1 className="text-4xl font-semibold">Filimon Alem</h1>
-      <h2 className="text-2xl text-green-700">Software Engineer</h2>
+      <h1 className="text-5xl font-semibold">Filimon Alem</h1>
+      <h2 className="text-3xl text-green-700">Software Engineer</h2>
     </header>
-    <div className="w-[18vw] h-[20vw] bg-gray-400 rounded-xl shadow-2xl border-2 border-blue-300" />
+    <div className="mr-20 w-[15vw] h-[20vw] bg-gray-400 rounded-xl m-39 shadow-2xl border-2 border-blue-300">
+      <img src={Profile_Photo} alt="My profile picture." />
+    </div>
   </div>
 );
 
@@ -72,7 +75,12 @@ const AboutSection = () => (
     <h3 className="font-heading text-3xl font-semibold mb-5 border-b-2 border-black pb-2 pt-5">
       About Me
     </h3>
-    <p className="text-lg px-[2vw] mt-4">[About me text placeholder]</p>
+    <p className="text-lg px-[2vw] mt-4">
+      I am passionate software engineering student persuing my degree at Mekelle
+      University. I have a strong interest in learning, problem-solving, and
+      developing practical skills. I enjoy taking on projects that push my
+      thinking and help me deepen my understanding of the world.
+    </p>
   </section>
 );
 
