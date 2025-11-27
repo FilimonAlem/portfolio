@@ -10,8 +10,8 @@ export interface Project {
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export async function getProjects(): Promise<Project[]> {
-  const res = await fetch(`${VITE_API_URL}/api/projects`);
+  const res = await fetch("https://portfolio-backend-hgi2.onrender.com/api/project");
   if (!res.ok) throw new Error("Failed to fetch projects");
   const data: Project[] = await res.json();
   return data;
-}
+} 
