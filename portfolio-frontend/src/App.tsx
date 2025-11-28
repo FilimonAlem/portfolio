@@ -61,7 +61,7 @@ const HeaderSection = () => (
       <h1 className="text-5xl font-semibold">Filimon Alem</h1>
       <h2 className="text-3xl text-green-700">Software Engineer</h2>
     </header>
-    <div className="mr-20 w-[15vw] h-[20vw] bg-gray-400 rounded-xl m-39 shadow-2xl border-2 border-blue-300">
+    <div className="mr-20 w-[10vw] h-[15vw] bg-gray-400 rounded-xl m-39 shadow-2xl border-2 border-blue-300">
       <img src={Profile_Photo} alt="My profile picture." />
     </div>
   </div>
