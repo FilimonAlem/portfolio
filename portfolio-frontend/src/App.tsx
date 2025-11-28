@@ -56,7 +56,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
 );
 
 const HeaderSection = () => (
-  <div className="mb-[1vw] h-[40vh] pt-[5vw] bg-gray-300 flex justify-between items-center">
+  <div className="mb-[1vw] h-[15vh] pt-[5vw] bg-gray-300 flex justify-between items-center">
     <header className="pl-[2vw]">
       <h1 className="text-5xl font-semibold">Filimon Alem</h1>
       <h2 className="text-3xl text-green-700">Software Engineer</h2>
