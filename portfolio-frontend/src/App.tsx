@@ -44,8 +44,12 @@ const HeaderSection = () => (
     className="mt-20 mb-5 px-6 py-10 bg-gray-300 flex justify-between items-center"
   >
     <div>
-      <h1 className="text-5xl font-semibold">Filimon Alem</h1>
-      <h2 className="text-3xl text-green-700">Software Engineer</h2>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
+        Filimon Alem
+      </h1>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">
+        Software Engineer
+      </h2>
     </div>
 
     <div className="w-40 h-50 bg-gray-400 rounded-xl shadow-2xl border-2 border-blue-300 overflow-hidden">
