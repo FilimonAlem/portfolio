@@ -151,7 +151,7 @@ function App() {
   return (
     <div className="font-sans">
       {/* NAVIGATION */}
-      <nav className="fixed mt-10 z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
+      <nav className="fixed z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
         <div className="pr-10 flex gap-6">
           <NavLink href="#home" label="Home" active={active === "home"} />
           <NavLink
