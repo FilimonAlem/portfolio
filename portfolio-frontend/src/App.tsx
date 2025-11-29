@@ -41,14 +41,14 @@ const NavLink = ({
 const HeaderSection = () => (
   <header
     id="home"
-    className="mt-20 mb-10 px-6 py-10 bg-gray-300 flex justify-between items-center"
+    className="mt-20 mb-5 px-6 py-10 bg-gray-300 flex justify-between items-center"
   >
     <div>
       <h1 className="text-5xl font-semibold">Filimon Alem</h1>
       <h2 className="text-3xl text-green-700">Software Engineer</h2>
     </div>
 
-    <div className="w-40 h-40 bg-gray-400 rounded-xl shadow-2xl border-2 border-blue-300 overflow-hidden">
+    <div className="w-40 h-50 bg-gray-400 rounded-xl shadow-2xl border-2 border-blue-300 overflow-hidden">
       <img
         src={Profile_Photo}
         alt="My profile picture."
@@ -151,7 +151,7 @@ function App() {
   return (
     <div className="font-sans">
       {/* NAVIGATION */}
-      <nav className="fixed z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
+      <nav className="fixed top-0 z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
         <div className="pr-10 flex gap-6">
           <NavLink href="#home" label="Home" active={active === "home"} />
           <NavLink
