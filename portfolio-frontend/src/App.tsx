@@ -152,7 +152,7 @@ function App() {
     <div className="font-sans">
       {/* NAVIGATION */}
       <nav className="fixed z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
-        <div className="pr-10 flex gap-6">
+        <div className="pr-10 pt-4 flex gap-6">
           <NavLink href="#home" label="Home" active={active === "home"} />
           <NavLink
             href="#about-me"
