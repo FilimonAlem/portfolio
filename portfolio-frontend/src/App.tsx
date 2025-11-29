@@ -41,7 +41,7 @@ const NavLink = ({
 const HeaderSection = () => (
   <header
     id="home"
-    className="mt-20 mb-10 px-6 py-10 bg-gray-300 flex justify-between items-center scroll-mt-24"
+    className="mb-10 px-6 py-10 bg-gray-300 flex justify-between items-center scroll-mt-24"
   >
     <div>
       <h1 className="text-5xl font-semibold">Filimon Alem</h1>
