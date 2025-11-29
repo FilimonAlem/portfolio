@@ -41,7 +41,7 @@ const NavLink = ({
 const HeaderSection = () => (
   <header
     id="home"
-    className="mb-10 mt-4 px-6 py-10 bg-gray-300 flex justify-between items-center scroll-mt-24"
+    className="mb-10 mt-6 px-6 py-10 bg-gray-300 flex justify-between items-center scroll-mt-24"
   >
     <div>
       <h1 className="text-5xl font-semibold">Filimon Alem</h1>
@@ -151,7 +151,7 @@ function App() {
   return (
     <div className="font-sans">
       {/* NAVIGATION */}
-      <nav className="fixed z-[50] w-full bg-gray-500 font-heading flex items-center justify-end py-4 shadow-md">
+      <nav className="fixed z-[50] w-full bg-gray-500 font-heading flex items-center justify-end shadow-md">
         <div className="pr-10 flex gap-6">
           <NavLink href="#home" label="Home" active={active === "home"} />
           <NavLink
