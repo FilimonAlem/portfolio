@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="p-4 rounded-xl shadow-md bg-white">
+    <div className="p-4 rounded-xl shadow-md bg-black">
       <h2 className="text-xl font-bold">{project.title}</h2>
       <p className="mb-2">{project.description}</p>
       <p className="text-sm text-gray-600">{project.technologies.join(", ")}</p>

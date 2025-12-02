@@ -8,7 +8,7 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<Projects />} />
-      <Route path="/app" element={<App />} />
+      <Route path="/about" element={<App />} />
     </Routes>
   );
 }
