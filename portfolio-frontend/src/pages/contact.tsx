@@ -1,55 +1,33 @@
 import React, { useState } from "react";
 
-/**
- * ContactForm.tsx
- * A ready-to-drop-in, accessible contact form component written in React + TypeScript.
- * - Uses Tailwind CSS classes for styling (remove or replace if you don't use Tailwind)
- * - Client-side validation for name, email, message
- * - Honeypot field to reduce spam
- * - Sends JSON POST to /api/contact by default (adjust endpoint as needed)
- *
- * How to use:
- * 1. Place this file in your React project (e.g. src/components/ContactForm.tsx).
- * 2. Ensure Tailwind (or your preferred CSS) is available — the classes are optional.
- * 3. Implement a server endpoint at /api/contact that accepts JSON:
- *    { name, email, subject, message }
- *    and returns 200 on success or 4xx/5xx on error.
- * 4. Or wire the `submitUrl` prop to a service like Formspree / Netlify Function / Vercel Serverless.
- */
-
 type Props = {
-  submitUrl?: string; // defaults to /api/contact
-  subjectPlaceholder?: string;
+  submitUrl?: string;
 };
 
 type FormState = {
   name: string;
   email: string;
-  subject: string;
   message: string;
-  // honeypot
-  website: string;
+  website: string; // honeypot
 };
 
 export default function ContactForm({
-  submitUrl = "/api/contact",
-  subjectPlaceholder = "Subject (optional)",
+  submitUrl = "https://formspree.io/f/mayzjddr",
 }: Props) {
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
-    subject: "",
     message: "",
     website: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
   const validate = () => {
-    if (form.website.trim() !== "") return "Spam detected."; // honeypot filled
+    if (form.website.trim() !== "") return "Spam detected.";
     if (form.name.trim().length < 2) return "Please enter your name.";
-    // simple email check
     if (!/^\S+@\S+\.\S+$/.test(form.email))
       return "Please enter a valid email.";
     if (form.message.trim().length < 10)
@@ -76,28 +54,39 @@ export default function ContactForm({
     }
 
     setLoading(true);
+
     try {
       const res = await fetch(submitUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          subject: form.subject,
           message: form.message,
         }),
       });
 
+      const data = await res.json().catch(() => null);
+
       if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `Server returned ${res.status}`);
+        throw new Error(
+          data?.errors?.[0]?.message || `Error ${res.status}: submission failed`
+        );
       }
 
       setSuccess("Thanks! Your message was sent.");
-      setForm({ name: "", email: "", subject: "", message: "", website: "" });
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+        website: "",
+      });
     } catch (err: any) {
       console.error(err);
-      setError(err.message || "Something went wrong. Please try again later.");
+      setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -106,10 +95,10 @@ export default function ContactForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl mx-auto p-4 bg-white rounded-lg shadow-md"
+      className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md"
       aria-describedby="form-status"
     >
-      <h2 className="text-2xl font-semibold mb-3">Contact me</h2>
+      <h2 className="text-2xl font-semibold mb-6">Contact Me</h2>
 
       {error && (
         <div
@@ -131,82 +120,83 @@ export default function ContactForm({
         </div>
       )}
 
-      <label className="block mb-3">
-        <span className="text-sm font-medium">Name</span>
+      {/* Name */}
+      <div className="mb-4">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-800 mb-1"
+        >
+          Name
+        </label>
         <input
+          id="name"
           name="name"
           value={form.name}
           onChange={handleChange}
-          className="mt-1 block w-full rounded border p-2 focus:outline-none focus:ring"
+          className="w-full rounded border p-2 focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="Your name"
           required
-          aria-required="true"
         />
-      </label>
+      </div>
 
-      <label className="block mb-3">
-        <span className="text-sm font-medium">Email</span>
+      {/* Email */}
+      <div className="mb-4">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-800 mb-1"
+        >
+          Email
+        </label>
         <input
+          id="email"
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
-          className="mt-1 block w-full rounded border p-2 focus:outline-none focus:ring"
+          className="w-full rounded border p-2 focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="you@example.com"
           required
-          aria-required="true"
         />
-      </label>
+      </div>
 
-      <label className="block mb-3">
-        <span className="text-sm font-medium">{subjectPlaceholder}</span>
-        <input
-          name="subject"
-          value={form.subject}
-          onChange={handleChange}
-          className="mt-1 block w-full rounded border p-2 focus:outline-none focus:ring"
-          placeholder="(optional)"
-        />
-      </label>
-
-      <label className="block mb-3">
-        <span className="text-sm font-medium">Message</span>
+      {/* Message */}
+      <div className="mb-4">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-800 mb-1"
+        >
+          Message
+        </label>
         <textarea
+          id="message"
           name="message"
           value={form.message}
           onChange={handleChange}
-          className="mt-1 block w-full rounded border p-2 h-32 resize-vertical focus:outline-none focus:ring"
+          className="w-full rounded border p-2 h-32 resize-vertical focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="Tell me about your project or question..."
           required
-          aria-required="true"
         />
-      </label>
+      </div>
 
-      {/* Honeypot - visually hidden but present for bots */}
+      {/* Honeypot */}
       <label style={{ display: "none" }}>
-        <span>Website</span>
+        Website
         <input name="website" value={form.website} onChange={handleChange} />
       </label>
 
-      <div className="flex items-center gap-3 mt-4">
+      <div className="flex items-center gap-4 mt-4">
         <button
           type="submit"
           disabled={loading}
-          className="inline-flex items-center px-4 py-2 rounded bg-slate-800 text-white disabled:opacity-60"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-60"
         >
-          {loading ? "Sending..." : "Send message"}
+          {loading ? "Sending..." : "Send Message"}
         </button>
 
         <button
           type="button"
           onClick={() => {
-            setForm({
-              name: "",
-              email: "",
-              subject: "",
-              message: "",
-              website: "",
-            });
+            setForm({ name: "", email: "", message: "", website: "" });
             setError(null);
             setSuccess(null);
           }}
@@ -216,29 +206,9 @@ export default function ContactForm({
         </button>
       </div>
 
-      <p className="mt-3 text-xs text-slate-600">
-        By sending, you agree to receive a reply to the email you provide. No
-        spam — ever.
+      <p className="mt-3 text-xs text-gray-600">
+        By sending, you agree to receive a reply to the email you provide.
       </p>
     </form>
   );
 }
-
-/*
-Server example (Node/Express) - place behind /api/contact
-
-app.post('/api/contact', express.json(), async (req, res) => {
-  const { name, email, subject, message } = req.body;
-  if (!name || !email || !message) return res.status(400).send('Missing fields');
-
-  // TODO: send email using your provider (SendGrid, Mailgun, SES), or store in DB
-  // Example (pseudo): await sendEmail({ to: 'you@domain.com', subject: `[Portfolio] ${subject}`, body: ... })
-
-  res.status(200).send('OK');
-});
-
-Notes & tips:
-- If you use Netlify Forms or Formspree, you'll need to adapt the form attributes and/or POST URL.
-- For spam protection consider rate-limiting on the server and using reCAPTCHA (server-side verify required).
-- Keep UX snappy: optimistic UI patterns (show success early) work well but validate on server too.
-*/
