@@ -1,30 +1,44 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { FaLinkedin, FaYoutube, FaGithub, FaTwitter } from "react-icons/fa";
 
-// AboutSection component
-const AboutSection: React.FC = () => {
-  const location = useLocation();
-
+const FollowMe: React.FC = () => {
   return (
-    <>
-      <section
-        id="about-me"
-        className="bg-blue-300 scroll-mt-24 py-10 text-center"
-      >
-        <h3 className="font-heading text-3xl font-semibold mb-6 border-b-2 border-black pb-2">
-          About Me
-        </h3>
+    <section className="py-12 bg-gray-50 text-center">
+      <h2 className="text-3xl text-blue-300 font-bold mb-6">Follow Me</h2>
+      <p className="text-gray-600 mb-8">
+        Stay connected! Follow me on my social media channels for updates.
+      </p>
 
-        <p className="text-lg px-6 max-w-4xl mx-auto">
-          I am a passionate software engineering student pursuing my degree at
-          Mekelle University. I have a strong interest in learning,
-          problem-solving, and developing practical skills. I enjoy taking on
-          projects that strengthen my thinking and help me grow through
-          real-world challenges.
-        </p>
-      </section>
-    </>
+      <div className="flex justify-center gap-6 text-3xl">
+        <a
+          href="https://www.linkedin.com/in/filimon-alem-b321952b3"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-700 hover:text-blue-900 transition-colors"
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          href="https://www.youtube.com/@FilimonAlem-wmd"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-600 hover:text-red-800 transition-colors"
+        >
+          <FaYoutube />
+        </a>
+
+        <a
+          href="https://github.com/FilimonAlem"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-800 hover:text-black transition-colors"
+        >
+          <FaGithub />
+        </a>
+      </div>
+    </section>
   );
 };
 
-export default AboutSection;
+export default FollowMe;
