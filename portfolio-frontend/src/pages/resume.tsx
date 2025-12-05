@@ -1,18 +1,33 @@
 import React from "react";
 
-const AboutSection: React.FC = () => (
-  <section id="about-me" className="bg-blue-300 scroll-mt-24 py-10 text-center">
-    <h3 className="font-heading text-3xl font-semibold mb-6 border-b-2 border-black pb-2">
-      About Me
-    </h3>
+type Props = {
+  resumeUrl: string; // Link to your PDF resume
+};
 
-    <p className="text-lg px-6 max-w-4xl mx-auto">
-      I am a passionate software engineering student pursuing my degree at
-      Mekelle University. I have a strong interest in learning, problem-solving,
-      and developing practical skills. I enjoy taking on projects that
-      strengthen my thinking and help me grow through real-world challenges.
-    </p>
-  </section>
-);
+const ResumeDownloadPage: React.FC<Props> = ({ resumeUrl }) => {
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
+      <div className="max-w-lg w-full bg-white p-8 rounded-xl shadow-lg text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">My Resume</h1>
+        <p className="text-gray-600 mb-6">
+          Thank you for visiting my portfolio! You can download my resume below
+          to learn more about my experience and skills.
+        </p>
 
-export default AboutSection;
+        <a
+          href="/Filimon_Alem_Resume.pdf"
+          download
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+        >
+          Download Resume
+        </a>
+
+        <p className="text-gray-400 text-sm mt-4">
+          PDF format. Updated regularly.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default ResumeDownloadPage;
