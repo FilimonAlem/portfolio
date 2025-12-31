@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import projectRoutes from './routes/project.routes';
+import messageRoutes from './routes/message.routes';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const MONGO_URI = process.env.MONGO_URI!;
 app.use(cors());
 app.use(express.json());
 app.use('/api/projects', projectRoutes);
+app.use('/api/contact', messageRoutes);
 
 mongoose.connect(MONGO_URI)
   .then(() => {
