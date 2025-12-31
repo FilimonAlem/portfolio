@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-type Props = {
-  submitUrl?: string;
-};
-
 type FormState = {
   name: string;
   email: string;
@@ -11,9 +7,7 @@ type FormState = {
   website: string; // honeypot
 };
 
-export default function ContactForm({
-  submitUrl = "https://formspree.io/f/mayzjddr",
-}: Props) {
+export default function ContactForm() {
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -47,21 +41,18 @@ export default function ContactForm({
     setError(null);
     setSuccess(null);
 
-    const v = validate();
-    if (v) {
-      setError(v);
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
     setLoading(true);
 
     try {
-      const res = await fetch(submitUrl, {
+      const res = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
@@ -69,21 +60,15 @@ export default function ContactForm({
         }),
       });
 
-      const data = await res.json().catch(() => null);
-
       if (!res.ok) {
+        const data = await res.json().catch(() => null);
         throw new Error(
-          data?.errors?.[0]?.message || `Error ${res.status}: submission failed`
+          data?.error || `Error ${res.status}: submission failed`
         );
       }
 
       setSuccess("Thanks! Your message was sent.");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-        website: "",
-      });
+      setForm({ name: "", email: "", message: "", website: "" });
     } catch (err: any) {
       console.error(err);
       setError(err.message || "Something went wrong. Please try again.");
@@ -120,12 +105,8 @@ export default function ContactForm({
         </div>
       )}
 
-      {/* Name */}
       <div className="mb-4">
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-gray-800 mb-1"
-        >
+        <label htmlFor="name" className="block text-sm font-medium mb-1">
           Name
         </label>
         <input
@@ -139,12 +120,8 @@ export default function ContactForm({
         />
       </div>
 
-      {/* Email */}
       <div className="mb-4">
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-800 mb-1"
-        >
+        <label htmlFor="email" className="block text-sm font-medium mb-1">
           Email
         </label>
         <input
@@ -159,12 +136,8 @@ export default function ContactForm({
         />
       </div>
 
-      {/* Message */}
       <div className="mb-4">
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-800 mb-1"
-        >
+        <label htmlFor="message" className="block text-sm font-medium mb-1">
           Message
         </label>
         <textarea
@@ -178,7 +151,6 @@ export default function ContactForm({
         />
       </div>
 
-      {/* Honeypot */}
       <label style={{ display: "none" }}>
         Website
         <input name="website" value={form.website} onChange={handleChange} />
@@ -192,7 +164,6 @@ export default function ContactForm({
         >
           {loading ? "Sending..." : "Send Message"}
         </button>
-
         <button
           type="button"
           onClick={() => {
