@@ -3,62 +3,59 @@ import Profile_Picture from "../assets/Filimon-Alem-2026.jpg";
 
 const PortfolioHomepage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto bg-white border border-gray-100 shadow-sm rounded-lg p-6 sm:p-8">
-        <div className="mb-12 flex flex-col lg:flex-row items-center lg:items-start gap-8">
-          {/* Text Section */}
-          <div className="space-y-4 lg:w-2/3">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 leading-none tracking-tight">
-              Hi there,
-            </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 leading-none tracking-tight">
-              I'm Filimon Alem
-            </h1>
+    <div className="min-h-screen min-w-screen bg-gradient-to-b from-white to-blue-50 p-4 sm:p-8">
+      {/* Hero Section */}
+      <div className="max-w-5xl mx-auto bg-white border border-gray-200 shadow-xl rounded-2xl p-6 sm:p-10 flex flex-col lg:flex-row items-center gap-10">
+        
+        {/* Text Section */}
+        <div className="space-y-4 lg:w-2/3 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 leading-tight">
+            Hi there,
+          </h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            I'm Filimon Alem
+          </h1>
 
-            <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-gray-900 leading-tight tracking-wide mt-4">
-              Fullstack Software Engineer
-            </h2>
-
-            <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-900 leading-tight tracking-wide">
-              Web, Mobile and Desktop
-            </h3>
-          </div>
-
-          {/* Image Section */}
-          <div className="lg:w-1/3 flex justify-center lg:justify-end">
-            <img
-              src={Profile_Picture}
-              alt="Profile"
-              className="w-36 h-44 sm:w-40 sm:h-52 md:w-48 md:h-60 rounded-full object-cover"
-            />
-          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-semibold text-blue-700 mt-4">
+            Fullstack Software Engineer
+          </h2>
+          <h3 className="text-xl sm:text-2xl md:text-2xl font-medium text-gray-600">
+            Web, Mobile & Desktop
+          </h3>
         </div>
 
-        {/* Description */}
-        <div className="max-w-3xl mx-auto">
-          <p className="text-gray-800 text-base sm:text-lg md:text-lg leading-relaxed tracking-normal">
-            I'm a software engineer passionate about building practical,
-            user-focused applications across the web, mobile, and desktop. I
-            enjoy turning ideas into reliable solutions, whether it's a
-            responsive web app, an Android experience, or a full desktop
-            application.
-          </p>
+        {/* Profile Image */}
+        <div className="lg:w-1/3 flex justify-center lg:justify-end">
+          <img
+            src={Profile_Picture}
+            alt="Filimon Alem"
+            className="w-40 h-52 sm:w-48 sm:h-60 md:w-56 md:h-72 rounded-full object-cover shadow-2xl border-4 border-blue-100"
+          />
         </div>
+      </div>
+
+      {/* Description Section */}
+      <div className="max-w-4xl mx-auto mt-12 p-6 bg-white shadow-lg rounded-2xl text-gray-800 text-base sm:text-lg leading-relaxed space-y-4">
+        <p>
+          I'm a software engineer passionate about building practical,
+          user-focused applications across the web, mobile, and desktop.
+        </p>
+        <p>
+          I enjoy turning ideas into reliable solutions, whether it's a
+          responsive web app, an Android experience, or a full desktop
+          application.
+        </p>
+        <p>
+          My focus is on writing clean, efficient code while creating
+          experiences that are intuitive and impactful for users.
+        </p>
       </div>
 
       {/* Footer */}
-      <div className="max-w-4xl mx-auto mt-8 px-2 sm:px-0">
-        <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-400 gap-2 sm:gap-0">
-          <div className="flex items-center gap-2">
-            <span>•</span>
-            <span>Portfolio</span>
-            <span>•</span>
-          </div>
-          <div className="text-gray-300">
-            <span className="font-mono">2025</span>
-          </div>
-        </div>
-      </div>
+      <footer className="max-w-5xl mx-auto mt-16 px-2 sm:px-0 py-6 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
+        <span>© 2025 Filimon Alem • Portfolio</span>
+        <span className="font-mono mt-2 sm:mt-0">All rights reserved</span>
+      </footer>
     </div>
   );
 };
