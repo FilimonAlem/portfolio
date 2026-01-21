@@ -1,5 +1,5 @@
 import React from "react";
-import Profile_Picture from "../assets/Filimon-Alem.jpg";
+import Profile_Picture from "../assets/Filimon-Alem-2026.jpg";
 
 const PortfolioHomepage: React.FC = () => {
   return (
