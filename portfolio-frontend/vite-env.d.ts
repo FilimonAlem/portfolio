@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 interface ImportMetaEnv {
   readonly VITE_API_URL: string;
 }
@@ -5,7 +7,8 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
 declare module "*.jpg";
 declare module "*.jpeg";
 declare module "*.png";
-declare module "*.webp";
+declare module "*.svg";

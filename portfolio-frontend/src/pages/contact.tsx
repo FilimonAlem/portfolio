@@ -83,7 +83,7 @@ export default function ContactForm() {
       className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md"
       aria-describedby="form-status"
     >
-      <h2 className="text-2xl font-semibold mb-6">Contact Me</h2>
+      <h2 className="text-2xl text-black font-semibold mb-6">Contact Me</h2>
 
       {error && (
         <div
@@ -106,7 +106,7 @@ export default function ContactForm() {
       )}
 
       <div className="mb-4">
-        <label htmlFor="name" className="block text-sm font-medium mb-1">
+        <label htmlFor="name" className="block text-black text-sm font-medium mb-1">
           Name
         </label>
         <input
@@ -114,14 +114,14 @@ export default function ContactForm() {
           name="name"
           value={form.name}
           onChange={handleChange}
-          className="w-full rounded border p-2 focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full text-black rounded border p-2 focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="Your name"
           required
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="email" className="block text-sm font-medium mb-1">
+        <label htmlFor="email" className="block text-black text-sm font-medium mb-1">
           Email
         </label>
         <input
@@ -130,14 +130,14 @@ export default function ContactForm() {
           name="email"
           value={form.email}
           onChange={handleChange}
-          className="w-full rounded border p-2 focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full rounded text-blue-500 border p-2 focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="you@example.com"
           required
         />
       </div>
 
       <div className="mb-4">
-        <label htmlFor="message" className="block text-sm font-medium mb-1">
+        <label htmlFor="message" className="block text-black text-sm font-medium mb-1">
           Message
         </label>
         <textarea
@@ -145,7 +145,7 @@ export default function ContactForm() {
           name="message"
           value={form.message}
           onChange={handleChange}
-          className="w-full rounded border p-2 h-32 resize-vertical focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full text-black rounded border p-2 h-32 resize-vertical focus:outline-none focus:ring focus:ring-blue-300"
           placeholder="Tell me about your project or question..."
           required
         />
