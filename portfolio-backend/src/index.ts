@@ -11,7 +11,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI!;
  
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://filimon-alem-portfolio.onrender.com",
+  ],
+}));
+
 app.use(express.json());
 app.use('/api/projects', projectRoutes);
 app.use('/api/contact', messageRoutes);
