@@ -13,7 +13,7 @@ export const createMessage = async (req: Request, res: Response) => {
     port: EMAIL_PORT ? Number(EMAIL_PORT) : undefined,
     user: EMAIL_USER,
   });
-  
+
   if (!EMAIL_HOST || !EMAIL_PORT || !EMAIL_USER || !EMAIL_PASS || !EMAIL_TO) {
     return res.status(500).json({ message: "Email configuration is missing" });
   }
@@ -30,9 +30,9 @@ export const createMessage = async (req: Request, res: Response) => {
     });
 
     await transporter.sendMail({
-      from: `"Contact Form" <${EMAIL_USER}>`,
+      from: `"Portfolio Contact Form" <${EMAIL_USER}>`,
       to: EMAIL_TO,
-      subject: "New Contact Message",
+      subject: "New Portfolio Contact Message",
       text: `
 Name: ${name}
 Email: ${email}
